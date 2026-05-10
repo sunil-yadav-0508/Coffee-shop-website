@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BrewHaven — Artisan Coffee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo">Brew<span>Haven</span></a>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Reserve Table</button>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-nav" onclick="toggleMenu()"><i class="fas fa-times"></i></button>
+  <a href="#hero" onclick="toggleMenu()">Home</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#menu" onclick="toggleMenu()">Menu</a>
+  <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
+  <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-text">COFFEE</div>
+  <div class="hero-content">
+    <div class="hero-tag">&#9749; Est. 2014 — Mumbai, India</div>
+    <h1>Sip the Art of <em>Perfect</em> Coffee</h1>
+    <p>Handcrafted brews made from single-origin beans, roasted in-house every morning. Where every cup tells a story of passion, craft, and warmth.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary">Explore Menu</a>
+      <a href="#about" class="btn-outline">Our Story</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">12+</div><div class="stat-label">Bean Origins</div></div>
+      <div class="stat"><div class="stat-num">50K+</div><div class="stat-label">Happy Guests</div></div>
+      <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">Average Rating</div></div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img-wrap reveal">
+    <div class="about-img-main" style="min-height:420px;background:linear-gradient(135deg,#2d1506,#7a4f2e);"></div>
+    <div class="about-badge">
+      <span>10+</span>
+      <span>Years of Craft</span>
+    </div>
+  </div>
+  <div class="about-text reveal">
+    <span class="section-tag">Our Story</span>
+    <h2>More Than Coffee — It's a <em>Ritual</em></h2>
+    <p>BrewHaven was born from a simple obsession: finding the perfect cup. We travel to the world's finest coffee-growing regions — Ethiopia, Colombia, Sumatra — to source beans that carry the terroir of their land.</p>
+    <p>Every batch is roasted in small lots, every espresso is pulled with precision, and every latte is poured with care. We believe coffee is not just a beverage — it's the best part of your day.</p>
+    <div class="about-features">
+      <div class="feat"><i class="fas fa-leaf"></i> 100% Organic, Ethically Sourced Beans</div>
+      <div class="feat"><i class="fas fa-fire"></i> In-House Small-Batch Roasting Daily</div>
+      <div class="feat"><i class="fas fa-award"></i> Award-Winning Baristas</div>
+      <div class="feat"><i class="fas fa-recycle"></i> Zero-Waste Packaging & Practices</div>
+    </div>
+    <a href="#menu" class="btn-primary">View Our Menu</a>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="section-header reveal">
+    <span class="section-tag">What We Brew</span>
+    <h2>Crafted For Every Craving</h2>
+    <p>From bold espressos to velvety cold brews, our menu is a love letter to the art of coffee.</p>
+  </div>
+  <div class="menu-tabs">
+    <button class="tab-btn active" onclick="filterMenu('all',this)">All</button>
+    <button class="tab-btn" onclick="filterMenu('hot',this)">Hot Drinks</button>
+    <button class="tab-btn" onclick="filterMenu('cold',this)">Cold Brews</button>
+    <button class="tab-btn" onclick="filterMenu('food',this)">Food</button>
+  </div>
+  <div class="menu-grid" id="menuGrid"></div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-header reveal">
+    <span class="section-tag">What They Say</span>
+    <h2>Stories From Our Guests</h2>
+    <p>Words from the people who make BrewHaven what it is — our community.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>The single-origin pour-over here changed everything I thought I knew about coffee. Each visit feels like a warm embrace. Absolutely my favorite spot in the city.</p>
+      <div class="testi-author">
+        <div class="author-avatar">A</div>
+        <div class="author-info">
+          <strong>Aisha Mehta</strong>
+          <span>Regular since 2019</span>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>I've been to coffee shops across three continents and BrewHaven's cold brew is genuinely among the best I've ever had. The atmosphere is unmatched — cozy, warm, and real.</p>
+      <div class="testi-author">
+        <div class="author-avatar">R</div>
+        <div class="author-info">
+          <strong>Rohan Kapoor</strong>
+          <span>Coffee Enthusiast</span>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>Every morning starts here. The baristas remember your name, your order, and somehow always make your day better. This place has a soul that's rare to find.</p>
+      <div class="testi-author">
+        <div class="author-avatar">P</div>
+        <div class="author-info">
+          <strong>Priya Sharma</strong>
+          <span>Daily Regular</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-header reveal">
+    <span class="section-tag">The BrewHaven World</span>
+    <h2>A Glimpse Inside</h2>
+    <p>Every corner of our café is designed to inspire calm, creativity, and connection.</p>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="gallery-item">
+      <div class="gallery-bg g1" style="min-height:100%;font-size:5rem;">☕</div>
+      <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-bg g2" style="font-size:4rem;">🫘</div>
+      <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-bg g3" style="font-size:4rem;">🥐</div>
+      <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-bg g4" style="font-size:4rem;">🧋</div>
+      <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-bg g5" style="font-size:4rem;">🍰</div>
+      <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info reveal">
+    <span class="section-tag">Find Us</span>
+    <h2>Come Visit or Get in Touch</h2>
+    <p>We'd love to have you. Whether you're planning a visit, hosting an event, or just want to say hello — we're always here.</p>
+    <div class="contact-detail">
+      <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+      <div>
+        <strong>Our Location</strong>
+        <span>12 Roastery Lane, Bandra West, Mumbai 400050</span>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="icon"><i class="fas fa-clock"></i></div>
+      <div>
+        <strong>Opening Hours</strong>
+        <span>Mon–Fri: 7:00 AM – 10:00 PM | Sat–Sun: 8:00 AM – 11:00 PM</span>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="icon"><i class="fas fa-phone"></i></div>
+      <div>
+        <strong>Call Us</strong>
+        <span>+91 98765 43210</span>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="icon"><i class="fas fa-envelope"></i></div>
+      <div>
+        <strong>Email</strong>
+        <span>hello@brewhaven.in</span>
+      </div>
+    </div>
+  </div>
+  <div class="reveal">
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Rohan" required/>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Kapoor" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@example.com" required/>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+91 98765 43210"/>
+      </div>
+      <div class="form-group">
+        <label>Reason for Visit</label>
+        <select>
+          <option>General Inquiry</option>
+          <option>Table Reservation</option>
+          <option>Private Event</option>
+          <option>Catering</option>
+          <option>Feedback</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us how we can help you..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo">Brew<span>Haven</span></a>
+      <p>Crafting exceptional coffee experiences since 2014. Every cup is a story, every visit a memory.</p>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#menu">Our Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Our Menu</h4>
+      <ul>
+        <li><a href="#">Espresso Drinks</a></li>
+        <li><a href="#">Cold Brews</a></li>
+        <li><a href="#">Specialty Coffee</a></li>
+        <li><a href="#">Pastries & Food</a></li>
+        <li><a href="#">Seasonal Specials</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Franchise</a></li>
+        <li><a href="#">Private Events</a></li>
+        <li><a href="#">Gift Cards</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr class="footer-divider"/>
+  <div class="footer-bottom">
+    <span>© 2025 BrewHaven. All rights reserved.</span>
+    <span>Made with ♥ and a lot of ☕</span>
+  </div>
+</footer>
+
+<script>
+  // NAV SCROLL
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // MOBILE MENU
+  function toggleMenu() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+
+  // MENU DATA
+  const menuItems = [
+    { cat:'hot', icon:'☕', name:'Signature Espresso', desc:'Double shot of our house-blend, bold and smooth with notes of dark chocolate and hazelnut.', price:'₹180' },
+    { cat:'hot', icon:'🍵', name:'Cappuccino Classico', desc:'Velvety micro-foam over a rich espresso pull, dusted with fine-ground cinnamon.', price:'₹220' },
+    { cat:'hot', icon:'🫖', name:'Cardamom Latte', desc:'Our bestseller — espresso with steamed milk infused with hand-crushed green cardamom.', price:'₹240' },
+    { cat:'hot', icon:'☕', name:'Pour-Over Single Origin', desc:'Ethiopian Yirgacheffe, slow-poured to bring out floral and citrus notes.', price:'₹280' },
+    { cat:'cold', icon:'🧊', name:'Nitro Cold Brew', desc:'24-hour cold-brewed coffee infused with nitrogen for a creamy, stout-like texture.', price:'₹260' },
+    { cat:'cold', icon:'🧋', name:'Iced Mocha Dream', desc:'Cold espresso layered with dark chocolate ganache, topped with oat milk and ice.', price:'₹300' },
+    { cat:'cold', icon:'🍦', name:'Vanilla Cold Latte', desc:'Cold-brewed coffee, fresh vanilla syrup, and chilled almond milk over crushed ice.', price:'₹270' },
+    { cat:'food', icon:'🥐', name:'Butter Croissant', desc:'Flaky, golden, and buttery — baked fresh every morning. Perfect with any coffee.', price:'₹120' },
+    { cat:'food', icon:'🍰', name:'Hazelnut Praline Cake', desc:'A slice of our house-made hazelnut cake with praline cream and toasted almonds.', price:'₹220' },
+    { cat:'food', icon:'🥪', name:'Avocado Toast', desc:'Sourdough bread topped with smashed avocado, chilli flakes, lemon zest and sea salt.', price:'₹280' },
+  ];
+
+  function renderMenu(filter) {
+    const grid = document.getElementById('menuGrid');
+    const filtered = filter === 'all' ? menuItems : menuItems.filter(i => i.cat === filter);
+    grid.innerHTML = filtered.map(item => `
+      <div class="menu-card reveal">
+        <div class="menu-icon">${item.icon}</div>
+        <h3>${item.name}</h3>
+        <p>${item.desc}</p>
+        <div class="menu-card-footer">
+          <span class="price">${item.price}</span>
+          <button class="add-btn" title="Add to order"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+    `).join('');
+    grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
+
+  function filterMenu(cat, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderMenu(cat);
+  }
+
+  // SCROLL REVEAL
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+
+  // INIT
+  renderMenu('all');
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // FORM SUBMIT
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.submit-btn');
+    btn.textContent = '✓ Message Sent!';
+    btn.style.background = '#4caf50';
+    setTimeout(() => {
+      btn.textContent = 'Send Message';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+</body>
+</html>
